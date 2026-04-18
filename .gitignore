@@ -16,7 +16,7 @@ terraform/*.exe
 .venv-*
 
 # GCP Service Account Key (Segurança da Fase 1)
-terraform/*.json
+*.json
 
 # Variáveis de ambiente (Segurança da Fase 2)
 .env
