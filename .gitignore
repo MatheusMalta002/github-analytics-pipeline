@@ -3,6 +3,12 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# GCP Service Account Key (Segurança da Fase 1)
+terraform/*.json
+
+# Variáveis de ambiente (Segurança da Fase 2)
+.env
+
 # C extensions
 *.so
 
