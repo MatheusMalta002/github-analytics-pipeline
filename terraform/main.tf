@@ -24,3 +24,12 @@ resource "google_bigquery_dataset" "gold" {
   location                    = var.region
   delete_contents_on_destroy  = true
 }
+
+# Cria o Bucket para o Estado do Airbyte
+resource "google_storage_bucket" "airbyte_state_bucket" {
+  name          = "${var.project_id}-airbyte-state"
+  location      = var.region
+  force_destroy = true 
+
+  public_access_prevention = "enforced"
+}
