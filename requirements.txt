@@ -4,3 +4,4 @@ dagster-dbt
 dbt-bigquery
 airbyte
 python-dotenv
+google-cloud-storage
