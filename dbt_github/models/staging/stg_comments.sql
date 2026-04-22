@@ -36,10 +36,10 @@ renamed as (
         safe_cast(json_extract_scalar(reactions, '$.total_count') as int64) as reaction_count,
 
         -- 11. Data de Criação (Casting para Datetime)
-        cast(created_at as datetime) as created_at,
+        cast(created_at as timestamp) as created_at,
 
         -- 12. Última Atualização (Casting para Datetime)
-        cast(updated_at as datetime) as updated_at,
+        cast(updated_at as timestamp) as updated_at,
 
         -- 13. Link Externo
         html_url

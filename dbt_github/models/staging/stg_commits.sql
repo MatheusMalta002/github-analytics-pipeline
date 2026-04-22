@@ -33,10 +33,10 @@ renamed as (
         -- 9. Mensagem do Commit
         json_extract_scalar(commit, '$.message') as commit_message,
         -- 10. Data da Autoria (Casting para Datetime)
-        cast(json_extract_scalar(commit, '$.author.date') as datetime) as commit_at,
+        cast(json_extract_scalar(commit, '$.author.date') as timestamp) as commit_at,
 
         -- 11. Data de Registro (Casting para Datetime)
-        cast(created_at as datetime) as created_at,
+        cast(created_at as timestamp) as created_at,
 
         -- 12. Link Externo
         html_url

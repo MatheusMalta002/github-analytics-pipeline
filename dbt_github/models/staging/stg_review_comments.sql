@@ -40,9 +40,9 @@ renamed as (
         author_association,
 
         -- 12. Datas (Casting para Datetime)
-        cast(created_at as datetime) as created_at,
+        cast(created_at as timestamp) as created_at,
         -- 13. Última atualização
-        cast(updated_at as datetime) as updated_at,
+        cast(updated_at as timestamp) as updated_at,
 
         -- 14. Link Externo
         html_url

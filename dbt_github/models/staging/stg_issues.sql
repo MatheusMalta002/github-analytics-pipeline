@@ -49,14 +49,14 @@ renamed as (
         labels as labels_list,
 
         -- 14. Datas (Casting para Datetime)
-        cast(created_at as datetime) as created_at,
+        cast(created_at as timestamp) as created_at,
         -- 15. Última atualização
-        cast(updated_at as datetime) as updated_at,
+        cast(updated_at as timestamp) as updated_at,
         -- 16. Data de fechamento
-        cast(closed_at as datetime) as closed_at,
+        cast(closed_at as timestamp) as closed_at,
 
         -- 17. Se o código entrou de fato (extraído do JSON pull_request)
-        cast(json_extract_scalar(pull_request, '$.merged_at') as datetime) as merged_at,
+        cast(json_extract_scalar(pull_request, '$.merged_at') as timestamp) as merged_at,
 
         -- 18. Link Externo
         html_url
