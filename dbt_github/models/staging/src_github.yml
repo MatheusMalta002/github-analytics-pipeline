@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: bronze_github
+    database: pipeline-github-493713
+    schema: bronze_github
+    tables:
+      - name: comments
+      - name: issues
+      - name: commits
+      - name: review_comments
