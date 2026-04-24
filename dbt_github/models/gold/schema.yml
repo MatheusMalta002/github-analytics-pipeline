@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: gold_fct_pull_requests
+    description: "Tabela fato consolidada de Pull Requests com métricas de performance e engajamento."
+    columns:
+      - name: repository_name
+        tests:
+          - not_null
+      - name: issue_number
+        tests:
+          - not_null
+
+  - name: gold_fct_commits
+    description: "Tabela fato de commits para análise de cadência e heatmap de produtividade."
+    columns:
+      - name: commit_sha
+        tests:
+          - unique
+          - not_null
+
+  - name: gold_fct_interactions
+    description: "Hub unificado de interações (Comentários e Reviews) para análise de engajamento."
+
+  - name: gold_dim_contributors
+    description: "Dimensão mestre de contribuidores com tempo de casa e nível de engajamento."
+    columns:
+      - name: author_handle
+        tests:
+          - unique
+          - not_null
