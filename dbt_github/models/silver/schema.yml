@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: silver_issues
+    description: "Tabela de Issues e Pull Requests deduplicada. Contém apenas a versão mais recente de cada registro."
+    columns:
+      - name: issue_id
+        description: "Chave primária única da issue/PR."
+        tests:
+          - unique
+          - not_null
+
+  - name: silver_commits
+    description: "Tabela de commits deduplicada, garantindo que cada SHA apareça apenas uma vez."
+    columns:
+      - name: commit_sha
+        description: "Hash único identificador do commit."
+        tests:
+          - unique
+          - not_null
+
+  - name: silver_comments
+    description: "Tabela de comentários em issues deduplicada."
+    columns:
+      - name: comment_id
+        description: "ID único do comentário."
+        tests:
+          - unique
+          - not_null
+
+  - name: silver_review_comments
+    description: "Tabela de comentários de revisão de código (review comments) deduplicada."
+    columns:
+      - name: review_comment_id
+        description: "ID único do comentário de revisão."
+        tests:
+          - unique
+          - not_null
