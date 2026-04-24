@@ -31,6 +31,7 @@ contributor_stats as (
         max(created_at) as last_activity_at,
         count(*) as total_contributions_count
     from all_authors
+    where author_handle is not null
     group by 1
 ),
 
