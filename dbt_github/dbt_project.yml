@@ -33,5 +33,10 @@ models:
   dbt_github:
     staging:
       +materialized: view
+      +schema: staging_github # Tudo da staging vai para este dataset
     silver:
       +materialized: table
+      +schema: silver_github  # Tudo da silver vai para este dataset
+    gold:
+      +materialized: table
+      +schema: gold_github    # Tudo da gold vai para este dataset
