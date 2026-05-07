@@ -1,0 +1,8 @@
+services:
+  pipeline:
+    build: .
+    env_file: .env
+    environment:
+      - DBT_TARGET=prod
+      - GOOGLE_APPLICATION_CREDENTIALS=/app/github-pipeline-key.json
+      - DAGSTER_HOME=/app/.dagster_home
