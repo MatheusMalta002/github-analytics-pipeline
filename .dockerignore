@@ -1,0 +1,7 @@
+.venv
+.venv-source-github
+.dagster_home
+logs
+__pycache__
+*.pyc
+.git
