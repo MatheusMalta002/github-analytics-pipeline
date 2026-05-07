@@ -3,6 +3,9 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+# Dagster
+.dagster_home/
+
 # Terraform executable
 terraform/*.exe
 
