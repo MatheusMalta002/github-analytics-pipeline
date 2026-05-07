@@ -4,7 +4,6 @@ from pathlib import Path
 
 DBT_PROJECT_DIR = Path(__file__).parent.parent.parent / "dbt_github"
 
-# Mapeamento de pasta do dbt → grupo no Dagster
 DBT_GROUP_MAP = {
     "staging": "staging",
     "silver": "silver",
@@ -21,7 +20,6 @@ class CustomDagsterDbtTranslator(DagsterDbtTranslator):
         return super().get_asset_key(dbt_resource_props)
 
     def get_group_name(self, dbt_resource_props: dict) -> str:
-        # Pega o caminho do arquivo para inferir o grupo
         path = dbt_resource_props.get("path", "")
         for folder, group in DBT_GROUP_MAP.items():
             if path.startswith(folder):
