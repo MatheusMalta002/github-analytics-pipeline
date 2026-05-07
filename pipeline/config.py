@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv(override=True)
+load_dotenv(override=False)
 
 PROJECT_ID        = os.environ["GCP_PROJECT_ID"]
 DATASET_ID        = os.environ["GCP_DATASET_ID"]
