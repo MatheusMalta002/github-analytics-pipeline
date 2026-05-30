@@ -9,3 +9,9 @@ variable "region" {
   type        = string
   default     = "us-central1"
 }
+
+variable "github_token" {
+  description = "Token de acesso da API do GitHub"
+  type        = string
+  sensitive   = true
+}
