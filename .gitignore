@@ -12,6 +12,9 @@ dbt_github/profiles.yml
 # Terraform executable
 terraform/*.exe
 
+# Terraform variables
+terraform/terraform.tfvars
+
 # Terraform artifacts
 .terraform/
 *.tfstate
