@@ -5,3 +5,6 @@ logs
 __pycache__
 *.pyc
 .git
+*-key.json
+gcp-key.json
+github-pipeline-key.json

@@ -43,9 +43,10 @@ resource "google_cloud_run_v2_job" "pipeline" {
           name  = "GITHUB_TOKEN"
           value = var.github_token
         }
+
         env {
-          name  = "GOOGLE_APPLICATION_CREDENTIALS"
-          value = "/app/github-pipeline-key.json"
+          name  = "DBT_TARGET"
+          value = "prod"
         }
 
         resources {
