@@ -1,42 +1,35 @@
 name: Build and Deploy
-
 on:
   push:
     branches:
       - main
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Login no Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
       - name: Build e Push da imagem
+        id: build
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: matheusmalta2002/github-analytics-pipeline:latest
-
       - name: Autenticar no GCP
         uses: google-github-actions/auth@v2
         with:
           credentials_json: ${{ secrets.GCP_SA_KEY }}
-
       - name: Atualizar Cloud Run Job
         uses: google-github-actions/setup-gcloud@v2
-
       - name: Deploy
         run: |
           gcloud run jobs update github-analytics-pipeline \
-            --image docker.io/matheusmalta2002/github-analytics-pipeline:latest \
+            --image docker.io/matheusmalta2002/github-analytics-pipeline@${{ steps.build.outputs.digest }} \
             --region us-central1 \
             --project ${{ secrets.GCP_PROJECT_ID }}
