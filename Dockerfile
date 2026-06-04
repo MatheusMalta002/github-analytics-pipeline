@@ -11,7 +11,7 @@ COPY . .
 
 RUN python -c "import airbyte as ab; ab.get_source('source-github', config={'credentials': {'personal_access_token': 'dummy'}, 'repositories': ['dbt-labs/dbt-core'], 'start_date': '2024-01-01T00:00:00Z'})"
 
-RUN cd dbt_github && dbt deps && dbt parse --profiles-dir /app/dbt_github --target dev_no_connection && ls -la target/ && cd ..
+RUN cd dbt_github && dbt deps && dbt parse --profiles-dir /app/dbt_github --target dev_no_connection && find /app/dbt_github/target -name "manifest.json" && cd ..
 
 ENV DAGSTER_HOME=/app/.dagster_home
 RUN mkdir -p $DAGSTER_HOME && \
