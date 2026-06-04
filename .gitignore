@@ -3,9 +3,6 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-# Dbt
-dbt_github/profiles.yml
-
 # Dagster
 .dagster_home/
 

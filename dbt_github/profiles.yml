@@ -1,0 +1,31 @@
+dbt_github:
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: pipeline-github-493713
+      dataset: silver_github
+      keyfile: /home/matheus/projects/github-analytics-pipeline/github-pipeline-key.json
+      location: us-central1
+      threads: 4
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      priority: interactive
+    prod:
+      type: bigquery
+      method: oauth
+      project: pipeline-github-493713
+      dataset: silver_github
+      location: us-central1
+      threads: 4
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      priority: interactive
+    dev_no_connection:
+      type: bigquery
+      method: oauth
+      project: pipeline-github-493713
+      dataset: silver_github
+      location: us-central1
+      threads: 1
+  target: "{{ env_var('DBT_TARGET', 'dev') }}"
